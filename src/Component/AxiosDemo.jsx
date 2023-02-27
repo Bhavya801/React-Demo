@@ -9,9 +9,10 @@ export default class AxiosDemo extends React.Component {
     super()
     this.state={
       renderType: "posts",
-      items:[]
+      items:[],
     }
   }
+  
 
   componentDidMount(){
     axios.get(`https://dummyjson.com/${this.state.renderType}`)
@@ -24,14 +25,11 @@ export default class AxiosDemo extends React.Component {
     if(prevState.renderType!=this.state.renderType){
     axios.get(`https://dummyjson.com/${this.state.renderType}`)
     .then(res => {
-     
-     
       this.setState({items:res.data})
     })
+    }
   }
 
-
-  }
 
   render() {
     return (
@@ -41,9 +39,9 @@ export default class AxiosDemo extends React.Component {
       <button onClick={()=> this.setState({renderType:"comments"})}>COMMENTS</button>
       <button onClick={()=> this.setState({renderType:"posts"})}>POSTS</button>
       <button onClick={()=> this.setState({renderType:"todos"})}>TODO</button>
-      {this.state.renderType==="posts" && <PostsApi posts = {this.state.items}/>} 
-      {this.state.renderType==="comments" && <CommentsApi comments = {this.state.items}/>} 
-      {this.state.renderType==="todos" && <TodoApi todos = {this.state.items}/>} 
+      {this.state.renderType==="posts" && <PostsApi posts = {this.state.items} />} 
+      {this.state.renderType==="comments" && <CommentsApi comments = {this.state.items} />} 
+      {this.state.renderType==="todos" && <TodoApi todos = {this.state.items} />} 
 
       </div>
 

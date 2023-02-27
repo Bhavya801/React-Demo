@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import ReactDeleteRow from 'react-delete-row';
+
 
 export default class PostsApi extends PureComponent {
     
@@ -19,7 +21,8 @@ export default class PostsApi extends PureComponent {
         </thead>
         <tbody>
       {
-        items && items.map(item => <tr><td>{item.id}</td><td>{item.title}</td><td>{item.body}</td><td>{item.tags}</td></tr>) 
+          items && items.map(item => <ReactDeleteRow key ={item.id} data = {items} deleteElement= {<i>Delete</i>} iconClassName='text-danger' onDelete={ item => { return window.confirm(`Are you sure you want to delete`) }}><td>{item.id}</td><td>{item.title}</td><td>{item.body}</td><td>{item.tags}</td></ReactDeleteRow>)
+
         }
     </tbody></table>
     </div>)
