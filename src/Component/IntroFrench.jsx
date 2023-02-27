@@ -7,7 +7,7 @@ export default class IntroEnglish extends Component {
   render() {
     return (
       <div>
-        <h1>"Je m’appelle {this.props.name}. J’habite à {this.props.city}. J'aime {this.props.hobby}."</h1>
+        <h3>"Je m’appelle {this.props.name}. J’habite à {this.props.city}. J'aime {this.props.hobby}."</h3>
       </div>
     )
   }
