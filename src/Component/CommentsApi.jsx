@@ -6,7 +6,7 @@ export default class CommentsApi extends PureComponent {
     const items = this.props.comments.comments;
     console.log(items);
 
-    return (<div><table>
+    return (<div><table  id = "table-wrapper">
         <thead>
             <tr>
                 <th>ID</th>

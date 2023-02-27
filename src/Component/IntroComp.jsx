@@ -22,7 +22,6 @@ export default class IntroComp extends PureComponent {
       <div>
         <h3>{this.state.trans?<IntroEnglish name = "Bhavya" city = "Delhi" hobby ="Cooking"/>:<IntroFrench name = "Bhavya" city = "Delhi" hobby ="Cuisiner"/>}</h3>
         <button onClick={()=>this.changelang()}>Translate </button>
-        {/* <button onClick={()=>this.englishintro()}>Translate to English</button> */}
       </div>
     )
   }

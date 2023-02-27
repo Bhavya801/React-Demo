@@ -16,15 +16,9 @@ function App() {
            
 
       <header className="App-header">
-      {/* <AxiosDemo/> */}
+        
         <Nav flag = {true}/>
 
-        {/* <Child></Child> */}
-        {/* <Intro></Intro> */}
-        {/* <Change></Change> */}
-        {/* <button onClick={<Change/>}>HIII </button> */}
-        {/* <Change></Change> */}
-        {/* <Translate></Translate> */}
 
       </header>
 

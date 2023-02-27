@@ -6,7 +6,7 @@ export default class PostsApi extends PureComponent {
     const items = this.props.posts.posts;
     console.log(items);
    
-    return (<div><table>
+    return (<div><table  id = "table-wrapper">
         <thead>
             <tr>
               <th>ID</th>

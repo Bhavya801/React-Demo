@@ -6,7 +6,7 @@ export default class TodoApi extends PureComponent {
     const items = this.props.todos.todos;
     console.log(items);
    
-    return (<div><table>
+    return (<div><table id = "table-wrapper">
         <thead>
             <tr>
                 <th>ID</th>
