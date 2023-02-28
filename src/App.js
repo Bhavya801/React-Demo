@@ -7,7 +7,7 @@ import React, {useState} from "react";
 // import Translate from './IntroComp'
 import Nav from './Component/Changenav'
 import AxiosDemo from './Component/AxiosDemo'
-
+import {Route,Routes} from 'react-router-dom';
 
 function App() {
 
@@ -16,8 +16,11 @@ function App() {
            
 
       <header className="App-header">
-        {/* <Nav flag = {true}/> */}
-        <AxiosDemo/>
+        <Routes>
+            <Route path = "/task1" element = {<Nav/>}/>
+            <Route path = "/task2/*" element = {<AxiosDemo/>}/>
+        </Routes>
+      
 
 
       </header>
