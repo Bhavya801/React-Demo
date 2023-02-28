@@ -17,7 +17,7 @@ del = id => {
     
   render() {
     const items = this.props.posts.posts;
-    // console.log(items);
+    console.log("postapi",items);
    
     return (<div><table  id = "table-wrapper">
         <thead>

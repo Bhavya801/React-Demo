@@ -8,41 +8,55 @@ export default class AxiosDemo extends React.Component {
   constructor(){
     super()
     this.state={
-      renderType: "posts",
+      renderType: "",
       items:[],
     }
   }
   
 
-  componentDidMount(){
-    axios.get(`https://dummyjson.com/${this.state.renderType}`)
+  // componentDidMount(){
+  //   // const api = "comments"
+  //   axios.get(`https://dummyjson.com/${this.state.renderType}`)
+  //   .then(res => {
+  //     this.setState({items:res.data})
+  //     console.log("axios11",this.state.items)
+
+  //   })
+  // }
+
+
+
+  // componentDidUpdate(prevProp,prevState){
+  //   if(prevState.renderType!=this.state.renderType){
+  //   axios.get(`https://dummyjson.com/${this.state.renderType}`)
+  //   .then(res => {
+  //     this.setState({items:res.data})
+  //     console.log("axios12",this.state.items)
+
+  //   })
+  //   }
+  // }
+
+   onApply(api) {
+    axios.get(`https://dummyjson.com/${api}`)
     .then(res => {
-      this.setState({items:res.data})
-
-    })
+      const items = res.data
+      // console.log(items);
+      console.log("axios12",items)
+      this.setState({items:res.data,renderType:api})
+    });
   }
-
-
-
-  componentDidUpdate(prevProp,prevState){
-    if(prevState.renderType!=this.state.renderType){
-    axios.get(`https://dummyjson.com/${this.state.renderType}`)
-    .then(res => {
-      this.setState({items:res.data})
-    })
-    }
-  }
-
 
   render() {
+    console.log("axios13",this.state.items)
     return (
 
       <div>
     
-      <button onClick={()=> this.setState({renderType:"comments"})}>COMMENTS</button>
-      <button onClick={()=> this.setState({renderType:"posts"})}>POSTS</button>
-      <button onClick={()=> this.setState({renderType:"todos"})}>TODO</button>
-      {this.state.renderType==="posts" && <PostsApi posts = {this.state.items} />} 
+      <button onClick={()=> this.onApply('comments')}>COMMENTS</button>
+      <button onClick={()=> this.onApply('posts')}>POSTS </button>
+      <button onClick={()=> this.onApply('todos')}>TODO</button>
+      {this.state.renderType==="posts" && <PostsApi posts = {this.state.items}/>} 
       {this.state.renderType==="comments" && <CommentsApi comments = {this.state.items}/>} 
       {this.state.renderType==="todos" && <TodoApi todos = {this.state.items} />} 
 
