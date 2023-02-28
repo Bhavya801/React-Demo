@@ -10,7 +10,7 @@ export default class TodoApi extends PureComponent {
         }
     }
     del = id => {
-        const newData = this.state.items.filter(item => item.id !== id);
+        const newData = this.state.items && this.state.items.filter(item => item.id !== id);
         console.log("@@22",newData)
         this.setState({ items: newData });
     }

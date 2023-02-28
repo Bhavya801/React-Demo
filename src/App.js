@@ -16,7 +16,8 @@ function App() {
            
 
       <header className="App-header">
-        <Nav flag = {true}/>
+        {/* <Nav flag = {true}/> */}
+        <AxiosDemo/>
 
 
       </header>

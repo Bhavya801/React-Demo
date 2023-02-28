@@ -21,6 +21,9 @@ export default class AxiosDemo extends React.Component {
 
     })
   }
+
+
+
   componentDidUpdate(prevProp,prevState){
     if(prevState.renderType!=this.state.renderType){
     axios.get(`https://dummyjson.com/${this.state.renderType}`)
@@ -40,7 +43,7 @@ export default class AxiosDemo extends React.Component {
       <button onClick={()=> this.setState({renderType:"posts"})}>POSTS</button>
       <button onClick={()=> this.setState({renderType:"todos"})}>TODO</button>
       {this.state.renderType==="posts" && <PostsApi posts = {this.state.items} />} 
-      {this.state.renderType==="comments" && <CommentsApi comments = {this.state.items} />} 
+      {this.state.renderType==="comments" && <CommentsApi comments = {this.state.items}/>} 
       {this.state.renderType==="todos" && <TodoApi todos = {this.state.items} />} 
 
       </div>

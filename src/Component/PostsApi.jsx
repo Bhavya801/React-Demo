@@ -10,14 +10,14 @@ export default class PostsApi extends PureComponent {
     }
 }
 del = id => {
-    const newData = this.state.items.filter(item => item.id !== id);
+    const newData = this.state.items && this.state.items.filter(item => item.id !== id);
     console.log("@@22",newData)
     this.setState({ items: newData });
 }
     
   render() {
     const items = this.props.posts.posts;
-    console.log(items);
+    // console.log(items);
    
     return (<div><table  id = "table-wrapper">
         <thead>

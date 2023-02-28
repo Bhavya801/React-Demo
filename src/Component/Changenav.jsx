@@ -17,7 +17,7 @@ export default class Changenav extends PureComponent {
   render() {
     return (
       <div>
-        <AxiosDemo/>
+        {/* <AxiosDemo/> */}
         <h3>{this.state.flag?<IntroComp trans = {true} />:<Counter/>}</h3>
         <button onClick={()=>this.navchange()}>Tap to view another task</button>
       

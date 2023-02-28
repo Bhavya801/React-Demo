@@ -10,7 +10,7 @@ export default class CommentsApi extends PureComponent {
         }
     }
     del = id => {
-        const newData = this.state.items.filter(item => item.id !== id);
+        const newData = this.state.items && this.state.items.filter(item => item.id !== id);
         console.log("@@22",newData)
         this.setState({ items: newData });
     }
@@ -24,20 +24,37 @@ export default class CommentsApi extends PureComponent {
     //     this.setState({items:newitems})
     //     }
 
+      
+    compareBy = (key) => {
+    console.log("222")
+    return function(a, b) {
+    if (a[key] < b[key]) return -1;
+    if (a[key] > b[key]) return 1;
+    return 0;
+    };
+  }
+   
+    sortBy = (key) => {
+    console.log("1111",key)
+    let arrayCopy = [...this.state.items];
+    console.log("**2",arrayCopy)
+    arrayCopy.sort(this.compareBy(key));
+    this.setState({items: arrayCopy});
+    }
+
         
 
    render() {
     const items = this.props.comments.comments;
-    console.log(items);
-   
+    // console.log(items);
 
     return (<div><table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>COMMENT</th>
-                <th>POSTID</th>
-                <th>USER</th>
+                <th onClick = {()=> this.sortBy('id')} >ID </th>
+                <th onClick = {()=> this.sortBy('body')}>COMMENT</th>
+                <th onClick = {()=> this.sortBy('postId')}>POSTID</th>
+                <th onClick = {()=> this.sortBy('user')}>USER</th>
             </tr>
         </thead>
         <tbody>
