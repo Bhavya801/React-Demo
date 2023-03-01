@@ -18,6 +18,7 @@ export default class AxiosDemo extends React.Component {
    onApply = (api)=> {
     axios.get(`https://dummyjson.com/${api}`)
     .then(res => {
+
       this.setState({items:res.data[`${api}`],renderType:api})
     });
   }
@@ -54,11 +55,11 @@ export default class AxiosDemo extends React.Component {
       <button onClick={()=> this.onApply('comments')}>COMMENTS</button>
       <button onClick={()=> this.onApply('posts')}>POSTS </button>
       <button onClick={()=> this.onApply('todos')}>TODO</button>
-      <Routes>
-            <Route path = "/task2/posts" element = {this.state.renderType==="posts" && <PostsApi posts = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>} />
-            <Route path = "/task2/comments" element = {this.state.renderType==="comments" && <CommentsApi comments = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>} />
-            <Route path = "/task2/todos" element = {this.state.renderType==="todos" && <TodoApi todos = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>} />
-      </Routes>
+      
+      {this.state.renderType==="posts" && <PostsApi posts = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>}
+      {this.state.renderType==="comments" && <CommentsApi comments = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>}
+      {this.state.renderType==="todos" && <TodoApi todos = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>}
+   
       </div>
 
 

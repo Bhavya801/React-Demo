@@ -21,9 +21,9 @@ body{
 
 .App-header {
   font-family:Arial, Helvetica, sans-serif;
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
+  background-color: #c4b7a6;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -38,15 +38,56 @@ body{
 .buttonstyle {
   padding: 30px;
   justify-content:flex-end;
-  background:  #324960;
+  background:  #b9936c;
   color: white;
   font-size: 30px;
   display: flex;
 }
 
-table{
-  /* mask-type: luminance; */
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+/*table{
+  /* mask-type: luminance; 
   border: 1px solid whitesmoke;
+  /* background-color: #282c34; 
+  background-color:  #e6e2d3;
+  text-decoration-color: black;
+  font-family: sans-serif;
   border-width: 2px;
   table-layout: fixed;
   margin-left: auto;
@@ -56,14 +97,15 @@ table{
   font-weight: normal;
   margin-left: auto;
   margin-right: auto;
-  /* border:80px; */
-  /* border-collapse:collapse; */
+  color: #b9936c;
+  /* border:80px; 
+  border-collapse:collapse;
     /* width: 60%;
-    max-width: 50%; */
+    max-width: 50%; 
 }
-tr,td{
+tr,td,th{
   border-width: 2px;
-  border: 1px solid whitesmoke;
+  border: 1px solid black;
   table-layout: fixed;
   margin-left: auto;
   margin-right: auto;
@@ -72,12 +114,12 @@ tr,td{
   font-weight: normal;
   margin-left: auto;
   margin-right: auto;
-}
+}*/
 
 
 button {
     padding: 10px 20px;
-    background-color: rgb(85, 151, 173);
+    background-color: #b9936c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -88,9 +130,10 @@ button {
   }
 
 .btn {
-    padding: 10px 20px;
+    padding: 5px 5px;
     background-color: rgb(235, 68, 68);
     color: white;
+    font-size: x-small;
     border: none;
     border-radius: 5px;
     cursor: pointer;

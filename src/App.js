@@ -18,7 +18,7 @@ function App() {
       <header className="App-header">
         <Routes>
             <Route path = "/task1" element = {<Nav/>}/>
-            <Route path = "/task2/*" element = {<AxiosDemo/>}/>
+            <Route path = "/task2" element = {<AxiosDemo/>}/>
         </Routes>
       
 

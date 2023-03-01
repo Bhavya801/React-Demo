@@ -10,7 +10,7 @@ export default class CommentsApi extends PureComponent {
     }
     render() {
 
-    return (<div><table>
+    return (<div><table className='styled-table'>
         <thead>
             <tr>
                 <th onClick = {()=> this.props.sortBy('id')} >ID </th>
@@ -21,7 +21,7 @@ export default class CommentsApi extends PureComponent {
         </thead>
         <tbody>
         {
-        this.props.comments && this.props.comments.map(item =><tr><td>{item.id}</td><td>{item.body}</td><td>{item.postId}</td><td>{item.user.username}</td><td><button onClick={()=>this.props.dlt(item.id)}>Delete</button></td></tr>)
+        this.props.comments && this.props.comments.map(item =><tr><td>{item.id}</td><td>{item.body}</td><td>{item.postId}</td><td>{item.user.username}</td><td><button className='btn' onClick={()=>this.props.dlt(item.id)}>Delete<i class="bi bi-trash"></i></button></td></tr>)
         }
 
     </tbody></table>
