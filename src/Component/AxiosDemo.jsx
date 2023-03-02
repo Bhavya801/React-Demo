@@ -1,32 +1,27 @@
-import React from 'react';
+import {Component} from 'react';
 import axios from 'axios';
 import TodoApi from './TodoApi';
 import PostsApi from './PostsApi';
 import CommentsApi from './CommentsApi';
-import {Route,Routes} from 'react-router-dom';
 
-var renderType = ""
 
-export default class AxiosDemo extends React.Component {
+export default class AxiosDemo extends Component {
   constructor(){
     super()
     this.state={
-      items:[],
     }
   }
 
    onApply = (api)=> {
-    if(api!=renderType){
     axios.get(`https://dummyjson.com/${api}`)
     .then(res => {
-      this.setState({items:res.data[`${api}`]})
+      this.setState({items:res.data[`${api}`],renderType:api})
     });
-    renderType=api
   }
-  }
+  
 
   compareBy = (key) => {
-    
+
     return function(a, b) {
     if (a[`${key}`] < b[`${key}`]) return -1;
     if (a[`${key}`] > b[`${key}`]) return 1;
@@ -59,9 +54,9 @@ export default class AxiosDemo extends React.Component {
         <button onClick={()=> this.onApply('todos')}>TODO</button>
       </div>
       
-      {renderType==="posts" && <PostsApi posts = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>}
-      {renderType==="comments" && <CommentsApi comments = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>}
-      {renderType==="todos" && <TodoApi todos = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>}
+      {this.state.renderType==="posts" && <PostsApi posts = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>}
+      {this.state.renderType==="comments" && <CommentsApi comments = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>}
+      {this.state.renderType==="todos" && <TodoApi todos = {this.state.items} sortBy = {this.sortBy} dlt = {this.del}/>}
    
       </>
 
