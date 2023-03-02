@@ -1,14 +1,11 @@
-import React, { PureComponent } from 'react'
-import ReactDeleteRow from 'react-delete-row';
+import React from 'react'
 
+export default function Reactdltrow(props) {
+  return (
+    <>
 
-export default class TodoApi extends PureComponent {
-    
-  render() {
-    const items = this.props.todos.todos;
-    console.log(items);
-   
-    return (<div><table id = "table-wrapper">
+    <div>
+      <table id = "table-wrapper">
         <thead>
             <tr>
                 <th>ID</th>
@@ -18,12 +15,12 @@ export default class TodoApi extends PureComponent {
         </thead>
         <tbody>
       {
-            items && items.map(item => <ReactDeleteRow key ={item.id} data = {items} deleteElement= {<i>Delete</i>} iconClassName='text-danger' onDelete={ item => { return window.confirm(`Are you sure you want to delete`) }}><td>{item.id}</td><td>{item.todo}</td><td>{item.userId}</td></ReactDeleteRow>)
-        }
-    </tbody></table>
-    </div>)
-   
-    
-    
-  }
+        props.todos.todos && props.todos.todos.map(item => <ReactDeleteRow key ={item.id} data = {items} deleteElement= {<i>Delete</i>} iconClassName='text-danger' onDelete={ item => { return window.confirm(`Are you sure you want to delete`) }}><td>{item.id}</td><td>{item.todo}</td><td>{item.userId}</td></ReactDeleteRow>)
+      }
+    </tbody>
+      </table>
+</div>
+</>
+  )
 }
+

@@ -9,7 +9,10 @@ export default class child extends Component {
         }
     }
     counter(value){
-        value===0 ? this.setState({count:this.state.count -1}): this.setState({ count: this.state.count + 1 })
+        this.setState({
+            count:value==0 ?this.state.count -1:this.state.count + 1
+        })
+        
       
     }
 

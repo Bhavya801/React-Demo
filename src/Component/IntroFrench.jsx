@@ -1,14 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class IntroEnglish extends Component {
-  constructor(){
-    super()
-  }
-  render() {
-    return (
-      <div>
-        <h3>"Je m’appelle {this.props.name}. J’habite à {this.props.city}. J'aime {this.props.hobby}."</h3>
+export default function IntroFrench(props) {
+  return (
+    <div>
+        <h3>"Je m’appelle {props.name}. J’habite à {props.city}. J'aime {props.hobby}."</h3>
       </div>
-    )
-  }
+  )
 }
+

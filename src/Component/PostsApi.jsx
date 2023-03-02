@@ -1,48 +1,27 @@
-import React, { PureComponent } from 'react'
-import ReactDeleteRow from 'react-delete-row';
+import React from 'react'
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import ImportExportIcon from '@mui/icons-material/ImportExport';
 
 
-export default class PostsApi extends PureComponent {
-  constructor(props){
-    super(props)
-    this.state = {
-        
-    }
-}
-// del = id => {
-//     const newData = this.state.items && this.state.items.filter(item => item.id !== id);
-//     console.log("@@22",newData)
-//     this.setState({ items: newData });
-// }
-    
-  render() {
-    // const items = this.props.posts.posts;
-    // console.log("postapi",items);
-   
-    return (<div><table  id = "table-wrapper">
+export default function PostsApi(props) {
+  return (
+    <div><table  id = "table-wrapper">
         <thead>
             <tr>
-              <th  onClick = {()=> this.props.sortBy('id')} >ID</th>
-              <th  onClick = {()=> this.props.sortBy('title')} >TITLE</th>
-              <th  onClick = {()=> this.props.sortBy('body')} >BODY</th>
-              <th  onClick = {()=> this.props.sortBy('tags')} >TAGS</th>
-
+                <th>ID<ImportExportIcon onClick = {()=> props.sortBy('id')} fontSize = "small"/></th>
+                <th>TITLE<ImportExportIcon onClick = {()=> props.sortBy('title')} fontSize = "small"/></th>
+                <th>BODY<ImportExportIcon onClick = {()=> props.sortBy('body')} fontSize = "small"/></th>
+                <th>TAGS<ImportExportIcon onClick = {()=> props.sortBy('tags')} fontSize = "small"/></th>
+                <th> </th>
             </tr>
 
         </thead>
         <tbody>
         {
-        this.props.posts && this.props.posts.map(item =><tr><td>{item.id}</td><td>{item.title}</td><td>{item.body}</td><td>{item.tags}</td><button onClick={()=>this.props.dlt(item.id)}>Delete</button></tr>)
+        props.posts && props.posts.map(item =><tr><td>{item.id}</td><td>{item.title}</td><td>{item.body}</td><td>{item.tags}</td><td><RemoveCircleOutlineIcon onClick={()=>props.dlt(item.id)}/></td></tr>)
         }
-
-      {/* {
-          items && items.map(item => <ReactDeleteRow key ={item.id} data = {items} deleteElement= {<i>Delete</i>} iconClassName='text-danger' onDelete={ item => { return window.confirm(`Are you sure you want to delete`) }}><td>{item.id}</td><td>{item.title}</td><td>{item.body}</td><td>{item.tags}</td></ReactDeleteRow>)
-
-        } */}
     </tbody></table>
-    </div>)
-   
-    
-    
-  }
+    </div>
+  )
 }
+
